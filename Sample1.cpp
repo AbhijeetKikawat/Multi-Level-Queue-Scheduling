@@ -155,6 +155,22 @@ void fcfs()
     avg_turnaround_time3=avg_turnaround_time3/l;
     printf("\nAverage Waiting Time=%f",avg_waiting_time3);
     printf("\nAverage Turnaround Time=%f",avg_turnaround_time3);
+    for(i=0;i<l;i++)
+    {
+    	while(burst_time3[i]!=0)
+    	{
+    		if(burst_time3[i]>10)
+    		{
+				printf("\nProcess[%d] of Queue3 is running for 10 units",i+1);
+				burst_time3[i]=burst_time3[i]-10;
+			}
+			else if(burst_time3[i]<=10)
+			{
+				printf("\nProcess[%d] of Queue2 is running for %d units",i+1,burst_time3[i]);
+				burst_time3[i]=0;
+			}
+		}
+	}
 }
 
 void round_robin1()
