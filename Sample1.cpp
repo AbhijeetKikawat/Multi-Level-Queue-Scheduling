@@ -3,7 +3,7 @@ int arrival_time1[30],arrival_time2[30],priority2[30],process2[30],arrival_time3
 int burst_time1[30],burst_time2[30],burst_time3[30];
 
 int n,i,at[30],bt[30],pr[30],j=0,k=0,l=0;
-int time_quantum1,time_quantum2;
+//int time_quantum1,time_quantum2;
 
 int total,x,temp[30],counter=0;
 float avg_waiting_time1=0.0,avg_turnaround_time1=0.0;
@@ -16,8 +16,6 @@ float avg_waiting_time2,avg_turnaround_time2;
 
 void round_robin()
 {
-	printf("Enter Time Quantum for Queue1:"); 
-    scanf("%d",&time_quantum2);
 	for(i=0;i<j;i++)
 	{
 		temp[i]=burst_time1[i];
@@ -26,7 +24,7 @@ void round_robin()
 	x=j;
     for(i=0,total=0;x!=0;) 
     { 
-    	if(temp[i]<=time_quantum2&&temp[i]>0) 
+    	if(temp[i]<=4&&temp[i]>0) 
         { 
             total=total+temp[i]; 
             temp[i]=0; 
@@ -34,8 +32,8 @@ void round_robin()
         } 
         else if(temp[i]>0) 
         { 
-            temp[i]=temp[i]-time_quantum2; 
-            total=total+time_quantum2; 
+            temp[i]=temp[i]-4; 
+            total=total+4; 
         } 
         if(temp[i]==0&&counter==1) 
         { 
