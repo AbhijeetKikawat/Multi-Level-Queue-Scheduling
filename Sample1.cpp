@@ -112,6 +112,23 @@ void priority()
     avg_turnaround_time2=sum/k;
     printf("\nAverage Waiting Time:\t%f",avg_waiting_time2);
     printf("\nAverage Turnaround Time:\t%f\n",avg_turnaround_time2);
+    
+    for(i=0;i<k;i++)
+    {
+    	while(burst_time2[i]!=0)
+    	{
+    		if(burst_time2[i]>10)
+    		{
+				printf("\nProcess[%d] of Queue2 is running for 10 units",i+1);
+				burst_time2[i]=burst_time2[i]-10;
+			}
+			else if(burst_time2[i]<=10)
+			{
+				printf("\nProcess[%d] of Queue2 is running for %d units",i+1,burst_time2[i]);
+				burst_time2[i]=0;
+			}
+		}
+	}
 
 }
 
@@ -145,32 +162,32 @@ void round_robin1()
 	printf("Time Quantum between the 3 queues is 10\n");
 	for(i=1;i<Total;i=i+10)
 	{
-		if(t1>=10)
+		if(t1>10)
 		{
 			printf("Queue1 is running for 10 units\n");
 			t1=t1-10;
 		}
-		else if(t1<10&&t1!=0)
+		else if(t1<=10&&t1!=0)
 		{
 			printf("Queue1 is running for %d units\n",t1);
 			t1=0;
 		}
-		if(t2>=10)
+		if(t2>10)
 		{
 			printf("Queue2 is running for 10 units\n");
 			t2=t2-10;
 		}
-		else if(t2<10&&t2!=0)
+		else if(t2<=10&&t2!=0)
 		{
 			printf("Queue2 is running for %d units\n",t2);
 			t2=0;
 		}
-		if(t3>=10)
+		if(t3>10)
 		{
 			printf("Queue3 is running for 10 units\n");
 			t3=t3-10;
 		}
-		else if(t3<10&&t3!=0)
+		else if(t3<=10&&t3!=0)
 		{
 			printf("Queue3 is running for %d units\n",t3);
 			t3=0;
