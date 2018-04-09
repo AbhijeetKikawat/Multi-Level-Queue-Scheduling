@@ -27,13 +27,15 @@ void round_robin()
     for(i=0,total=0;x!=0;) 
     { 
     	if(temp[i]<=4&&temp[i]>0) 
-        { 
+        {
+			printf("\nProcess[%d] of Queue1 is running for %d units",i+1,temp[i]); 
             total=total+temp[i]; 
             temp[i]=0; 
             counter=1; 
         } 
         else if(temp[i]>0) 
-        { 
+        {
+			printf("\nProcess[%d] of Queue1 is running for 4 units",i+1); 
             temp[i]=temp[i]-4; 
             total=total+4; 
         } 
@@ -79,9 +81,11 @@ void priority()
         temp1=priority2[i];
         priority2[i]=priority2[position];
         priority2[position]=temp1; 
+        
         temp1=burst_time2[i];
         burst_time2[i]=burst_time2[position];
         burst_time2[position]=temp1;
+        
         temp1=process2[i];
         process2[i]=process2[position];
         process2[position]=temp1;
